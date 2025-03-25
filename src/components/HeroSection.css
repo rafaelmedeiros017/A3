@@ -1,0 +1,12 @@
+.hero-section {
+    height: 85vh !important;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .logo-hero img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  

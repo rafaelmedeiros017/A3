@@ -1,0 +1,11 @@
+.admin-link {
+    color: #101dda !important; 
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .admin-link:hover {
+    color: #1078da !important; /* tom mais escuro no hover */
+  }
+  
+  
