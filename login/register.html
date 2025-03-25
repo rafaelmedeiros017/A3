@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>  
+<div class="modal fade" id="createAccountModal" tabindex="-1" aria-labelledby="createAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="mb-4">Criar Conta</h1>
+            </div>
+            <div class="modal-body">
+                <style>
+                    input:focus {
+                        border: 1px solid rgb(120, 120, 209) !important; /* Borda azul ao clicar para digitar */
+                        outline-color: #5038ED; /* Cor da borda ao clicar para digitar */
+                        
+                    }
+                    .modal-header h1 {
+                        border-color: #5038ED;
+                        border-radius: 10px;
+                        text-align: center; /* Centraliza o título */
+                        font-size: 30px; /* Ajusta o tamanho da fonte */
+                        margin-bottom: 30px; /* Aumenta a distância entre o título e os campos de entrada */
+                    }
+                    .modal-body input {
+                        border: none; /* Remove a borda dos campos de entrada */
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 5px;
+                        height: 31px; /* Aumenta a altura dos campos de entrada */
+                        font-size: 16px; /* Ajusta o tamanho da fonte */
+                        margin-bottom: 15px; /* Aumenta a distância entre os campos de entrada */
+                    }
+                    .modal-body button {
+                        width: 100%;
+                        height: 30px; /* Aumenta a altura do botão */
+                        font-size: 16px; /* Ajusta o tamanho da fonte */
+                        margin-top: 30px; /* Aumenta a distância entre os campos de entrada e o botão */
+                        font-weight: bold;
+                    }
+                </style>
+                <input type="nome" class="form-control mb-3" placeholder=" Nome">
+                <input type="sobrenome" class="form-control mb-3" placeholder=" Sobrenome">
+                <input type="email" class="form-control mb-3" placeholder=" Email">
+                <input type="tel" class="form-control mb-3" placeholder=" Telefone">
+                <input type="password" class="form-control mb-1" placeholder=" Senha">
+                <input type="password" class="form-control mb-3" placeholder=" Confirmar Senha">
+                <button type="button" class="btn btn-primary">Criar Conta
+                </button>
+            <div class="modal-footer">
+                <style>
+                    .modal-footer button {
+                        font-weight: normal;
+                        border: none; /* Remove a borda dos campos de entrada */
+                        display: block;
+                        width: 100%;
+                        height: 21px; /* Aumenta a altura dos campos de entrada */
+                        cursor: pointer; /* Muda o cursor ao passar o mouse sobre o botão */
+                    }
+                </style>
+                    <button type="button" class="btn btn-secondary close-button" data-bs-dismiss="modal">Fechar
+                    </button>
+                        <script>
+                        document.querySelector('.btn.btn-secondary').addEventListener('click', function() {
+                        window.location.href = 'login.html';
+                    });
+                </script>
+            </div>
+        </div>
+     </div>
