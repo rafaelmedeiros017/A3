@@ -1,0 +1,101 @@
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+body{
+    width: 1500px;
+height: 740px;
+}
+header{
+display: inline-block;
+margin-top: 110px;
+position: relative;
+
+}
+.username{
+    width: 364px;
+    height: 52px;
+background: rgba(240, 237, 255, 0.80);
+border-radius: 16px;
+display: inline-block;
+margin: 20px 0px 20px 150px;
+font-size: 15px;
+
+}
+.senha{
+    width: 364px;
+    height: 52px;
+    background: rgba(240, 237, 255, 0.80);
+    border-radius: 16px;
+    display: inline-block;
+    margin: 20px 0px 20px 150px;
+    font-size: 15px;
+}
+.login{
+    font-size: 30px;
+    margin-left: 300px;
+}
+p{
+    color: #525252;
+    margin-left: 180px;
+
+font-size: 16px;
+}
+.botaologin{
+    width: 124px;
+height: 52px;
+border-radius: 16px;
+ background-color: #5038ED;
+ color: white;
+ margin: 0px 0px 20px 270px;
+ font-size: 15px;
+}
+.entre{
+    
+    margin: 20px 0px 20px 270px;
+ }
+ .facebook{
+    width: 50px;
+    height: 52px;
+    background: rgba(240, 237, 255, 0.80);
+    border-radius: 16px;
+    margin: 20px 0px 20px 300px;
+    font-size: 17px;
+
+ }
+.google{
+    width: 50px;
+    height: 52px;
+    background: rgba(240, 237, 255, 0.80);
+    border-radius: 16px;
+    margin-left: 300px;
+    font-size: 17px;
+}
+main{
+    position: relative;
+    display:inline-block ;
+    vertical-align:top;
+   
+}
+.fundo
+{
+    float: right;
+margin-left: 150px;
+width: 827px;
+height: 740px;
+}
+.frente{
+    position: absolute;
+    float: right;
+    margin-left: 200px;
+    top: 150px;
+    width: 700px;
+    height: 500px;
+  
+    
+
+    
+    
+}
