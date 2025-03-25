@@ -6,7 +6,7 @@ const CreateAccountModal = () => {
 
     const handleClose = () => {
         setShowModal(false);
-        window.location.href = 'login.html';
+        window.location.href = 'login.jsx';
     };
 
     const handleShow = () => {
