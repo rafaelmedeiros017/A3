@@ -1,101 +1,48 @@
-*{
+* {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
-body{
-    width: 1500px;
-height: 740px;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
 }
-header{
-display: inline-block;
-margin-top: 110px;
-position: relative;
-
-}
-.username{
-    width: 364px;
-    height: 52px;
-background: rgba(240, 237, 255, 0.80);
-border-radius: 16px;
-display: inline-block;
-margin: 20px 0px 20px 150px;
-font-size: 15px;
-
-}
-.senha{
-    width: 364px;
-    height: 52px;
-    background: rgba(240, 237, 255, 0.80);
+.login-container {
+    background: white;
+    padding: 40px 40px 10px;
     border-radius: 16px;
-    display: inline-block;
-    margin: 20px 0px 20px 150px;
-    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }
-.login{
-    font-size: 30px;
-    margin-left: 300px;
-}
-p{
-    color: #525252;
-    margin-left: 180px;
-
-font-size: 16px;
-}
-.botaologin{
-    width: 124px;
-height: 52px;
-border-radius: 16px;
- background-color: #5038ED;
- color: white;
- margin: 0px 0px 20px 270px;
- font-size: 15px;
-}
-.entre{
-    
-    margin: 20px 0px 20px 270px;
- }
- .facebook{
-    width: 50px;
-    height: 52px;
+.form-control {
+    border-radius: 10px;
     background: rgba(240, 237, 255, 0.80);
-    border-radius: 16px;
-    margin: 20px 0px 20px 300px;
-    font-size: 17px;
+}
+.btn-primary {
+    background-color: #5038ED;
+    border: none;
+    border-radius: 10px;
+}
+.btn-primary:hover {
+    background-color: #3a28c4;
+}
+.social-buttons .btn {
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 
- }
-.google{
-    width: 50px;
-    height: 52px;
-    background: rgba(240, 237, 255, 0.80);
-    border-radius: 16px;
-    margin-left: 300px;
-    font-size: 17px;
+.criar-conta {
+    font-size: smaller;
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
 }
-main{
-    position: relative;
-    display:inline-block ;
-    vertical-align:top;
-   
-}
-.fundo
-{
-    float: right;
-margin-left: 150px;
-width: 827px;
-height: 740px;
-}
-.frente{
-    position: absolute;
-    float: right;
-    margin-left: 200px;
-    top: 150px;
-    width: 700px;
-    height: 500px;
-  
-    
 
-    
-    
-}
+
