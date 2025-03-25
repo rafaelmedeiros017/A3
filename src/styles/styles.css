@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Exo 2", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.custom-header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 200px;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
+.nav-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-icons .nav-item {
+    text-align: center;
+    color: #000;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.nav-icons .nav-item.active,
+.nav-icons .nav-item:hover {
+    color: #007bff;
+}
+
+.nav-icons .nav-item i {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.nav-underline {
+    height: 3px;
+    width: 20px;
+    background-color: #007bff;
+    margin: 4px auto 0;
+    border-radius: 5px;
+}
+
+.hero-section {
+    height: 70vh !important;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    padding-top: 20px;
+}
+
+.logo-hero {
+    margin-bottom: 4rem !important;
+}
+
+.search-form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.search-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-select {
+    min-width: 180px;
+    background-color: transparent;
+}
+
+.carros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carros-section {
+    background-color: #f9f9f9;
+}
+
+.carro-card {
+    transition: transform 0.3s ease;
+}
+
+.carro-card:hover {
+    transform: scale(1.03);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #fff;
+    margin-top: 40px;
+}
