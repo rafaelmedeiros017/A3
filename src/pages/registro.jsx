@@ -1,12 +1,13 @@
+
 import React, { useState } from 'react';
-import './style.css';
+import './registro.css';
 
 const CreateAccountModal = () => {
     const [showModal, setShowModal] = useState(false);
 
     const handleClose = () => {
         setShowModal(false);
-        window.location.href = 'login.jsx';
+        window.location.href = 'Login.jsx';
     };
 
     const handleShow = () => {

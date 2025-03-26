@@ -28,6 +28,9 @@ export default function Header() {
                     <a href="/admin/featured-cars" class="nav-item admin-link ms-5 m-4">
                         <i class="bi bi-person-gear"></i> Admin
                     </a>
+                    <a href="/registro" className="nav-item">
+                        <i className="bi bi-person-plus"></i> Crie sua conta aqui
+                    </a>
                 </div>
             </div>
         </header>
