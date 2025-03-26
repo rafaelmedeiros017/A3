@@ -25,11 +25,15 @@ export default function Header() {
                     <a href="#" className="nav-item">
                         <i className="bi bi-grid-3x3-gap-fill"></i> Menu
                     </a>
-                    <a href="/admin/featured-cars" class="nav-item admin-link ms-5 m-4">
+                    <a
+                        href="/admin/featured-cars"
+                        class="nav-item admin-link ms-5 m-4"
+                    >
                         <i class="bi bi-person-gear"></i> Admin
                     </a>
-                    <a href="/src/pages/Registro.jsx" className="nav-item criar-conta">
-                        <i className="bi bi-person-plus"></i> Crie sua conta aqui
+                    <a href="/Registro" className="nav-item criar-conta">
+                        <i className="bi bi-person-plus"></i> Crie sua conta
+                        aqui
                     </a>
                 </div>
             </div>

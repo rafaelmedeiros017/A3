@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import './registro.css';
+import '../styles/Registro.css';
 
 const CreateAccountModal = () => {
     const [showModal, setShowModal] = useState(false);
