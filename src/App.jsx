@@ -8,6 +8,7 @@ import AdminFeaturedCars from "./pages/AdminFeaturedCars";
 import EditarCarro from "./pages/EditarCarro";
 import CarDetails from "./pages/CarDetails";
 import Login from "./pages/Login";
+import Registro from "./pages/registro";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     element={<EditarCarro />}
                 />
                 <Route path="/Login" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
             </Routes>
         </Router>
     );

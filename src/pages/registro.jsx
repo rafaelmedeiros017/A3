@@ -1,54 +1,69 @@
 
 import React, { useState } from 'react';
-import './registro.css';
+import '../styles/registro.css';
+
 
 const CreateAccountModal = () => {
-    const [showModal, setShowModal] = useState(false);
-
-    const handleClose = () => {
-        setShowModal(false);
-        window.location.href = 'Login.jsx';
-    };
-
-    const handleShow = () => {
-        setShowModal(true);
-    };
+    const [formData, setFormData] = useState({
+        nome: '',
+        email: '',
+        senha: '',
+        confirmarSenha: ''
+    });
 
     return (
-        <>
-            <button onClick={handleShow} className="btn btn-primary">
-                Criar Conta
-            </button>
-
-            {showModal && (
-                <div className="modal fade show" id="createAccountModal" tabIndex="-1" aria-labelledby="createAccountModalLabel" aria-hidden="false">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h1 className="mb-4">Criar Conta</h1>
-                            </div>
-                            <div className="modal-body">
-                                <input type="text" className="form-control mb-3" placeholder=" Nome" />
-                                <input type="text" className="form-control mb-3" placeholder=" Sobrenome" />
-                                <input type="email" className="form-control mb-3" placeholder=" Email" />
-                                <input type="tel" className="form-control mb-3" placeholder=" Telefone" />
-                                <input type="password" className="form-control mb-1" placeholder=" Senha" />
-                                <input type="password" className="form-control mb-3" placeholder=" Confirmar Senha" />
-                                <button type="button" className="btn btn-primary">
-                                    Criar Conta
-                                </button>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleClose}>
-                                    Fechar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </>
-    );
+        <div className="registro-container">
+            <h2 className="registro-title">Criar Conta</h2>
+            <form className="registro-form">
+            <div className="form-group">
+            <label htmlFor="nome" className="form-label">Nome</label>
+            <input
+            type="text"
+            id="nome"
+            className="form-input"
+            placeholder="Nome"
+            value={formData.nome}
+            onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+            />
+            </div>
+            <div className="form-group">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input
+            type="email"
+            id="email"
+            className="form-input"
+            placeholder="Email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+            </div>
+            <div className="form-group">
+            <label htmlFor="senha" className="form-label">Senha</label>
+            <input
+            type="password"
+            id="senha"
+            className="form-input"
+            placeholder="Senha"
+            value={formData.senha}
+            onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
+            />
+            </div>
+            <div className="form-group">
+            <label htmlFor="confirmarSenha" className="form-label">Confirmar Senha</label>
+            <input
+            type="password"
+            id="confirmarSenha"
+            className="form-input"
+            placeholder="Confirmar Senha"
+            value={formData.confirmarSenha}
+            onChange
+                />
+            </div>
+            <button type="submit" className="form-button">Criar Conta</button>
+            </form>
+        </div>
+        );
 };
-
+    
+    
 export default CreateAccountModal;

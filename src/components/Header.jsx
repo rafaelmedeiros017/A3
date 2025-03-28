@@ -1,6 +1,7 @@
 import "./Header.css";
 import "../styles/styles.css";
 import logo from "../assets/Stand-Oline_logo_Black-removebg-preview.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -28,9 +29,9 @@ export default function Header() {
                     <a href="/admin/featured-cars" class="nav-item admin-link ms-5 m-4">
                         <i class="bi bi-person-gear"></i> Admin
                     </a>
-                    <a href="/src/pages/Registro.jsx" className="nav-item criar-conta">
+                    <Link to="/registro" className="nav-item create-account">
                         <i className="bi bi-person-plus"></i> Crie sua conta aqui
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>
