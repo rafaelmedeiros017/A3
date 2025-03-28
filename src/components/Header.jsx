@@ -26,7 +26,10 @@ export default function Header() {
                     <a href="#" className="nav-item">
                         <i className="bi bi-grid-3x3-gap-fill"></i> Menu
                     </a>
-                    <a href="/admin/featured-cars" class="nav-item admin-link ms-5 m-4">
+                    <a
+                        href="/admin/featured-cars"
+                        class="nav-item admin-link ms-5 m-4"
+                    >
                         <i class="bi bi-person-gear"></i> Admin
                     </a>
                     <Link to="/registro" className="nav-item create-account">

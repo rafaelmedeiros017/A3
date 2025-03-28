@@ -70,7 +70,7 @@ const AdminFeaturedCars = () => {
     if (type === 'checkbox') {
       setCar({ ...car, [name]: checked });
     } else if (type === 'file') {
-      setCar({ ...car, imagem: files[0] }); // pega o arquivo para upload real
+      setCar({ ...car, imagem: files[0] }); 
     } else {
       setCar({ ...car, [name]: value });
     }
