@@ -26,7 +26,7 @@ const Login = () => {
                         Facebook
                     </button>
                 </div>
-                <a className="criar-conta" href="#">
+                <a className="criar-conta" href="/Registro">
                     <p>Criar conta</p>
                 </a>
             </div>

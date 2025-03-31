@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/registro.css';
+import '../styles/Registro.css';
+
 const CreateAccountModal = () => {
     const [formData, setFormData] = useState({
         nome: '',
@@ -8,7 +9,7 @@ const CreateAccountModal = () => {
         confirmarSenha: ''
     });
 
-    return (    <div className="registro-container">
+    return (    <div className="registro-body">
         <h2 className="registro-title">Criar Conta</h2>
         <form className="registro-form">
         <div className="form-group">
