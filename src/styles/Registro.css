@@ -30,6 +30,7 @@ border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 .form-login-link {
     font-size: 1rem;
     color: #000000;
@@ -38,12 +39,28 @@ border: none;
     
 }
 
-.form-group {
+.form-grupo {
     margin-bottom: 15px;
     padding: 3px;
     border-radius: 10px;
-    background-color: #6b73dd;
+    background-color: #101dda;
 }
+.header-bar {
+    display: flex;
+    background-color: #000000;
+    padding: 35px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /*barra cabeçalho*/
+}
+.logo {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 10px; /*logo*/
+}
+
 
 .form-label {
     font-weight: bold;

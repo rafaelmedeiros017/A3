@@ -32,8 +32,11 @@ export default function Header() {
                     >
                         <i class="bi bi-person-gear"></i> Admin
                     </a>
+                    <Link to="/login" className="nav-item login-button">
+                        <i className="bi bi-box-arrow-in-right"></i> Logar
+                    </Link>
                     <Link to="/registro" className="nav-item create-account">
-                        <i className="bi bi-person-plus"></i> Crie sua conta aqui
+                        <i className="bi bi-person-plus"></i> Registrar
                     </Link>
                 </div>
             </div>

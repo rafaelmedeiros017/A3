@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Registro.css';
+import logo from "../assets/Stand-Oline_logo_White-removebg-preview.png";
 
 const CreateAccountModal = () => {
     const [formData, setFormData] = useState({
@@ -22,9 +23,15 @@ const CreateAccountModal = () => {
 
     return (
         <div className="registro-body">
+            <img
+                src={logo} // Usando a variável importada
+                alt="Stand Online Logo"
+                className="logo"
+            />
+            <div className="header-bar"></div>
             <form className="registro-form" onSubmit={handleSubmit}>
                 <h1 className="form-titulo">Registre-se</h1>
-                <div className="form-group">
+                <div className="form-grupo">
                     <label htmlFor="nome" className="form-label"></label>
                     <input
                         type="text"
@@ -35,7 +42,7 @@ const CreateAccountModal = () => {
                         onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-grupo">
                     <label htmlFor="email" className="form-label"></label>
                     <input
                         type="email"
@@ -52,7 +59,7 @@ const CreateAccountModal = () => {
                         }}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-grupo">
                     <label htmlFor="senha" className="form-label"></label>
                     <input
                         type="password"
@@ -63,7 +70,7 @@ const CreateAccountModal = () => {
                         onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-grupo">
                     <label htmlFor="confirmarSenha" className="form-label"></label>
                     <input
                         type="password"
@@ -74,7 +81,7 @@ const CreateAccountModal = () => {
                         onChange={(e) => setFormData({ ...formData, confirmarSenha: e.target.value })}
                     />
                 </div>
-                <div className="form-group">
+                <div className="form-grupo">
                     <label htmlFor="role" className="form-label"></label>
                     <select
                         id="role"
@@ -101,7 +108,6 @@ const CreateAccountModal = () => {
                         alt="Google Logo"
                         className="google-logo"
                     />
-                    
                 </button>
             </form>
         </div>
