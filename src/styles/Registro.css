@@ -2,21 +2,21 @@
 
 .registro-body{
     display: flex;
+    font: 1em sans-serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%;
     background: linear-gradient(to top, #4f54a1, #000dff);
 }
+
 .google-logo{
     width: 60px;
 border: none;
-    }
+}
 
 .form-titulo {
     font-size: 50px;
-    font-weight: bold;
     font-family: sans-serif;
     color: #000000;
     margin-bottom: 30px;
@@ -36,31 +36,27 @@ border: none;
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-    
+}
+
+.erro-texto {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: right;
 }
 
 .form-grupo {
     margin-bottom: 15px;
     padding: 3px;
     border-radius: 10px;
-    background-color: #101dda;
-}
-.header-bar {
-    display: flex;
-    background-color: #000000;
-    padding: 35px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000; /*barra cabeçalho*/
-}
-.logo {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 10px; /*logo*/
+    box-shadow: none;
 }
 
+.form-input:focus {
+    outline: none;
+    border: 2px solid rgba(0, 0, 255, 0.5); /* Borda transparente azul */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Efeito de brilho */
+}
 
 .form-label {
     font-weight: bold;
@@ -90,6 +86,7 @@ border: none;
     display: inline-block;
     border-radius: 10px;
     margin-top: 20px;
+    margin-bottom: 10px;
     transition: 0.2s ease-in-out; /*botão criar conta*/
 }
 
@@ -102,6 +99,7 @@ border: none;
     background-color: #0a1f7d;
     transform: translateY(-2px);
 }
+
 .form-button:active {
-    background-color: #0a1f7d;
+    transform: translateY(2px);
 }

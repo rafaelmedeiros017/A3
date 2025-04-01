@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap');
+
 .login-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Garante que o conteúdo fique no centro da tela */
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top, #4f54a1, #000dff);
 }
 
 .login-container {
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 400px;
@@ -18,16 +22,19 @@
 .form-control {
     border-radius: 10px;
     background: rgba(240, 237, 255, 0.8);
-}
-
-.btn-primary {
-    background-color: #5038ed;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
     border: none;
-    border-radius: 10px;
 }
 
 .btn-primary:hover {
-    background-color: #3a28c4;
+    background-color: #0a1f7d;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
 }
 
 .social-buttons .btn {
@@ -42,3 +49,4 @@
     cursor: pointer;
     text-decoration: none;
 }
+

@@ -1,38 +1,50 @@
 import React, { useState } from 'react';
 import '../styles/Registro.css';
-import logo from "../assets/Stand-Oline_logo_White-removebg-preview.png";
+import Header from '../components/Header';
 
 const CreateAccountModal = () => {
     const [formData, setFormData] = useState({
         nome: '',
         email: '',
         senha: '',
-        confirmarSenha: ''
+        confirmarSenha: '',
+        role: ''
     });
+
+    const [emailValido, setEmailValido] = useState(true);
+
+    const validarEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleEmailChange = (e) => {
+        const email = e.target.value;
+        setFormData({ ...formData, email });
+        setEmailValido(validarEmail(email));
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!emailValido) {
+            alert('Por favor, insira um email válido.');
+            return;
+        }
         if (formData.senha !== formData.confirmarSenha) {
             alert('As senhas não coincidem. Por favor, tente novamente.');
             setFormData({ ...formData, senha: '', confirmarSenha: '' });
             return;
         }
-        // Aqui da pra adicionar a lógica para enviar os dados do formulário
         console.log('Formulário enviado com sucesso:', formData);
     };
 
     return (
         <div className="registro-body">
-            <img
-                src={logo} // Usando a variável importada
-                alt="Stand Online Logo"
-                className="logo"
-            />
-            <div className="header-bar"></div>
+            <Header />
+
             <form className="registro-form" onSubmit={handleSubmit}>
                 <h1 className="form-titulo">Registre-se</h1>
                 <div className="form-grupo">
-                    <label htmlFor="nome" className="form-label"></label>
                     <input
                         type="text"
                         id="nome"
@@ -43,24 +55,17 @@ const CreateAccountModal = () => {
                     />
                 </div>
                 <div className="form-grupo">
-                    <label htmlFor="email" className="form-label"></label>
                     <input
                         type="email"
                         id="email"
                         className="form-input"
                         placeholder="Email (Ex: joao123@example.com)"
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        onBlur={() => {
-                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                            if (!emailRegex.test(formData.email)) {
-                                alert('Por favor, insira um email válido.');
-                            }
-                        }}
+                        onChange={handleEmailChange}
                     />
+                    {!emailValido && <p className="erro-texto">Email inválido</p>}
                 </div>
                 <div className="form-grupo">
-                    <label htmlFor="senha" className="form-label"></label>
                     <input
                         type="password"
                         id="senha"
@@ -71,7 +76,6 @@ const CreateAccountModal = () => {
                     />
                 </div>
                 <div className="form-grupo">
-                    <label htmlFor="confirmarSenha" className="form-label"></label>
                     <input
                         type="password"
                         id="confirmarSenha"
@@ -82,13 +86,11 @@ const CreateAccountModal = () => {
                     />
                 </div>
                 <div className="form-grupo">
-                    <label htmlFor="role" className="form-label"></label>
                     <select
                         id="role"
                         className="form-select"
-                        placeholder="Escolha uma opção"
-                        value={formData.role || ''}
-                        onChange={(e) => setFormData(formData => ({ ...formData, role: e.target.value }))}
+                        value={formData.role}
+                        onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     >
                         <option value="" disabled>Escolha seu intúito</option>
                         <option value="aluga">Locador</option>
@@ -102,13 +104,6 @@ const CreateAccountModal = () => {
                 <a href="/Login" className="form-login-link">
                     <p>Já possui uma conta? Faça login</p>
                 </a>
-                <button type="button" className="google-login-button" onClick={() => alert('Login com Google ainda não implementado.')}>
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                        alt="Google Logo"
-                        className="google-logo"
-                    />
-                </button>
             </form>
         </div>
     );
