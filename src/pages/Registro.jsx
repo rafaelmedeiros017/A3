@@ -16,7 +16,7 @@ const CreateAccountModal = () => {
             setFormData({ ...formData, senha: '', confirmarSenha: '' });
             return;
         }
-        // Aqui você pode adicionar a lógica para enviar os dados do formulário
+        // Aqui da pra adicionar a lógica para enviar os dados do formulário
         console.log('Formulário enviado com sucesso:', formData);
     };
 
