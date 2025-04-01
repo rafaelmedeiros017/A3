@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/registro.css';
+import '../styles/Registro.css';
+
 const CreateAccountModal = () => {
     const [formData, setFormData] = useState({
         nome: '',
