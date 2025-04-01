@@ -34,7 +34,7 @@ function App() {
                     element={<EditarCarro />}
                 />
                 <Route path="/Login" element={<Login />} />
-                <Route path="/registro" element={<Registro />} />
+                <Route path="/Registro" element={<Registro />} />
             </Routes>
         </Router>
     );

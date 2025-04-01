@@ -1,22 +1,90 @@
-.registro-body {
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&display=swap');
+
+.registro-body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-}
-
-#root {
     width: 100%;
+    background: linear-gradient(to top, #4f54a1, #000dff);
 }
+.google-logo{
+    width: 60px;
+border: none;
+    }
 
-.registro-container {
+.form-titulo {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #000000;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.registro-body h2 {
-    font-size: 1.5rem;
-    margin-bottom: 50px;
-    font: 600 1.5rem 'Poppins', sans-serif;
-    color: #101dda;
+.registro-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.form-login-link {
+    font-size: 1rem;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+.form-group {
+    margin-bottom: 15px;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: #6b73dd;
+}
+
+.form-label {
+    font-weight: bold;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px; /*nome dentro das caixas*/
+}
+
+.form-button {
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font: sans-serif;
+    background-color: #101dda;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: 0.2s ease-in-out; /*botão criar conta*/
+}
+
+.form-select {
+ /* Estilo para o select */
+    width: 100%;
+}
+
+.form-button:hover {
+    background-color: #0a1f7d;
+    transform: translateY(-2px);
+}
+.form-button:active {
+    background-color: #0a1f7d;
 }
