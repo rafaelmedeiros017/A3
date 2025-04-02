@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import '../styles/Registro.css';
-import Header from '../components/Header';
 
 const CreateAccountModal = () => {
     const [formData, setFormData] = useState({
@@ -39,9 +38,8 @@ const CreateAccountModal = () => {
     };
 
     return (
+        <>
         <div className="registro-body">
-            <Header />
-
             <form className="registro-form" onSubmit={handleSubmit}>
                 <h1 className="form-titulo">Registre-se</h1>
                 <div className="form-grupo">
@@ -58,7 +56,7 @@ const CreateAccountModal = () => {
                     <input
                         type="email"
                         id="email"
-                        className="form-input"
+                        className="form-input mb-3"
                         placeholder="Email (Ex: joao123@example.com)"
                         value={formData.email}
                         onChange={handleEmailChange}
@@ -97,6 +95,13 @@ const CreateAccountModal = () => {
                         <option value="alugara">Locatário</option>
                     </select>
                 </div>
+                    <button className="btn btn-outline-dark w-100 mb-2">
+                        <i className="fab fa-google me-2"></i> Entrar com Google
+                    </button>
+                    <button className="btn btn-outline-dark w-100">
+                        <i className="fab fa-facebook-f me-2"></i> Entrar com
+                        Facebook
+                    </button>
                 <button type="submit" className="form-button">Criar Conta</button>
                 <p className="form-terms">
                     Ao criar uma conta, você concorda com nossos <a href="/termos">Termos de Serviço</a> e <a href="/privacidade">Política de Privacidade</a>.
@@ -106,6 +111,7 @@ const CreateAccountModal = () => {
                 </a>
             </form>
         </div>
+        </>
     );
 };
 

@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
     return (
-        <header className="custom-header">
+        <header className="custom-header" style={{ position: "fixed", top: 0, width: "100%", zIndex: 1000 }}>
             <div className="container d-flex justify-content-between align-items-center">
                 <div className="logo">
-                    <img src={logo} alt="Stand Online" />
+                    <Link to="/">
+                        <img src={logo} alt="Stand Online" />
+                    </Link>
                 </div>
                 <div className="nav-icons">
                     <a href="#" className="nav-item">

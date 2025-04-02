@@ -4,9 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import "../components/Header.css";
 import "../styles/styles.css";
 import logo from "../assets/Stand-Oline_logo_Black-removebg-preview.png";
+import Header from '../components/Header';
 
-export function Header() {
+export function Header1() {
     return (
+      <>
+        < Header />
         <header className="custom-header">
             <div className="container d-flex justify-content-between align-items-center">
                 <div className="logo">
@@ -34,6 +37,7 @@ export function Header() {
                 </div>
             </div>
         </header>
+        </>
     );
 }
 

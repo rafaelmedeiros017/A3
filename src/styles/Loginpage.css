@@ -44,8 +44,9 @@
 }
 
 .criar-conta {
-    font-size: smaller;
-    color: blue;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     text-decoration: none;
 }

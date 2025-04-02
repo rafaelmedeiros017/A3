@@ -2,25 +2,11 @@
 
 .registro-body{
     display: flex;
-    font: 1em sans-serif;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
     background: linear-gradient(to top, #4f54a1, #000dff);
-}
-
-.google-logo{
-    width: 60px;
-border: none;
-}
-
-.form-titulo {
-    font-size: 50px;
-    font-family: sans-serif;
-    color: #000000;
-    margin-bottom: 30px;
-    text-align: center;
 }
 
 .registro-form {
@@ -46,29 +32,31 @@ border: none;
 }
 
 .form-grupo {
-    margin-bottom: 15px;
-    padding: 3px;
+    display: flex;
     border-radius: 10px;
-    box-shadow: none;
+    background-size: cover;
+    background: rgba(240, 237, 255, 0.8);
+    padding: 10px;
 }
 
-.form-input:focus {
-    outline: none;
-    border: 2px solid rgba(0, 0, 255, 0.5); /* Borda transparente azul */
-    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Efeito de brilho */
+.form-input:hover {
+    border-color: #000dff;
+    transform: translateY(-2px);
 }
 
-.form-label {
-    font-weight: bold;
-    display: block;
+
+.form-input:active {
+    border-color: #000dff;
+    transform: translateY(2px);
 }
 
 .form-input {
+    border-radius: 10px;
+    background: rgba(240, 237, 255, 0.8);
     width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: none;
-    border-radius: 10px; /*nome dentro das caixas*/
 }
 
 .form-button {
