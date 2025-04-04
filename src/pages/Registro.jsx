@@ -46,7 +46,7 @@ const CreateAccountModal = () => {
                     <input
                         type="text"
                         id="nome"
-                        className="form-input mb-3"
+                        className="form-input form-control mb-3"
                         placeholder="Nome (Ex: João)"
                         value={formData.nome}
                         onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
@@ -56,7 +56,7 @@ const CreateAccountModal = () => {
                     <input
                         type="email"
                         id="email"
-                        className="form-input mb-3"
+                        className="form-input form-control mb-3"
                         placeholder="Email (Ex: joao123@example.com)"
                         value={formData.email}
                         onChange={handleEmailChange}
@@ -67,7 +67,7 @@ const CreateAccountModal = () => {
                     <input
                         type="password"
                         id="senha"
-                        className="form-input mb-3"
+                        className="form-input form-control mb-3"
                         placeholder="Senha"
                         value={formData.senha}
                         onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
@@ -77,7 +77,7 @@ const CreateAccountModal = () => {
                     <input
                         type="password"
                         id="confirmarSenha"
-                        className="form-input mb-3"
+                        className="form-input form-control mb-3"
                         placeholder="Confirmar Senha"
                         value={formData.confirmarSenha}
                         onChange={(e) => setFormData({ ...formData, confirmarSenha: e.target.value })}
@@ -86,7 +86,7 @@ const CreateAccountModal = () => {
                 <div className="form-grupo">
                     <select
                         id="role"
-                        className="form-select"
+                        className="form-select form-control"
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     >
