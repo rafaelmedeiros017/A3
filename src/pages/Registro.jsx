@@ -91,8 +91,8 @@ const CreateAccountModal = () => {
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                     >
                         <option value="" disabled>Escolha seu intúito</option>
-                        <option value="aluga">Locador</option>
-                        <option value="alugara">Locatário</option>
+                        <option value="gestor">Gestor</option>
+                        <option value="motorista">Motorista</option>
                     </select>
                 </div>
                     <button className="btn btn-outline-dark w-100 mb-2">
