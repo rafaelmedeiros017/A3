@@ -9,8 +9,8 @@ const Layout = () => {
     useEffect(() => {
         const pageTitles = {
             "/": "Página Inicial | Locadora",
-            "/login": "Login | Meu Site",
-            "/registro": "Registro | Meu Site"
+            "/login": "Login | Locadora",
+            "/registro": "Registro | Locadora"
         };
         document.title = pageTitles[location.pathname] || "Meu Site";
     }, [location]);

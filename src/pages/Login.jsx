@@ -16,7 +16,7 @@ const Login = () => {
                         className="form-control mb-3"
                         placeholder="Senha"
                     />
-                    <button className="btn btn-primary w-100 mb-3">Entrar</button>
+                    <button className="entrar-conta">Entrar</button>
                     <p>Ou entre com</p>
                     <div className="social-buttons">
                         <button className="btn btn-outline-dark w-100 mb-2">

@@ -2,6 +2,7 @@
 
 .login-wrapper {
     display: flex;
+    font: sans-serif;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -27,13 +28,26 @@
     font-size: 1rem;
     border: none;
 }
+.entrar-conta {
+    width: 100%;
+    padding: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #101dda;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
 
-.btn-primary:hover {
+.entrar-conta:hover {
     background-color: #0a1f7d;
+
     transform: translateY(-2px);
 }
 
-.btn-primary:active {
+.entrar-conta:active {
     transform: translateY(2px);
 }
 
