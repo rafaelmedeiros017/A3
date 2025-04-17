@@ -1,17 +1,11 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import { Sequelize } from "sequelize"
 
-dotenv.config();
+// Cria uma instância do Sequelize
+const sequelize = new Sequelize("nome_database", "nome_usuario", "senha", {
+  // nome_usuario geralmente é "root"
+  host: "localhost", // Endereço do servidor
+  dialect: "mysql", // Banco de dados a ser utilizado
+  // port: 3306,
+})
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('✅ MongoDB conectado com sucesso');
-  } catch (error) {
-    console.error('❌ Erro ao conectar no MongoDB:', error);
-    process.exit(1); // Encerra o processo com erro
-  }
-};
-
-export default connectDB;
-
+export default sequelize
