@@ -1,11 +1,19 @@
-import { Sequelize } from "sequelize"
+import mysql from 'mysql2';
 
-// Cria uma instância do Sequelize
-const sequelize = new Sequelize("nome_database", "nome_usuario", "senha", {
-  // nome_usuario geralmente é "root"
-  host: "localhost", // Endereço do servidor
-  dialect: "mysql", // Banco de dados a ser utilizado
-  // port: 3306,
-})
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'stand'
+});
 
-export default sequelize
+db.connect((err) => {
+  if (err) {
+    console.error('❌ Erro ao conectar no MySQL:', err);
+    process.exit(1);
+  } else {
+    console.log('✅ Conectado ao MySQL');
+  }
+});
+
+export default db;

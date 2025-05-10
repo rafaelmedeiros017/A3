@@ -1,54 +1,16 @@
-import Sequelize from "sequelize"
-import sequelize from "../config/db.js"
+import mongoose from 'mongoose';
 
-sequelize
-  .authenticate()
-  .then(() => console.log("Conectado ao banco de dados!"))
-  .catch((err) => console.log("Erro ao conectar ao banco de dados: " + err))
+const carSchema = new mongoose.Schema({
+  marca: String,
+  modelo: String,
+  ano: Number,
+  combustivel: String,
+  km: Number,
+  preco: Number,
+  imagem: String,
+  ivaDedutivel: Boolean,
+});
 
-const Carro = sequelize.define("carros", {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true,
-  },
-  marca: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+const Car = mongoose.model('Car', carSchema);
+export default Car;
 
-  modelo: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-
-  ano: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-
-  combustivel: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-
-  km: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-  },
-  preco: {
-    type: Sequelize.DECIMAL,
-    allowNull: false,
-  },
-  imagem: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  ivaDedutivel: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-  },
-})
-
-export default Carro

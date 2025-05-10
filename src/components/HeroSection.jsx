@@ -1,8 +1,29 @@
+import React, { useState } from 'react';
 import './HeroSection.css';
 import logo from '../assets/Stand-Oline_logo_White-removebg-preview.png';
 import backgroundImage from '../assets/header_desktop1.webp';
+import { useNavigate } from 'react-router-dom';
 
 export default function HeroSection() {
+  const [filters, setFilters] = useState({
+    marca: '',
+    combustivel: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSearch = () => {
+    const query = new URLSearchParams(filters).toString();
+    navigate(`/resultados?${query}`);
+  };
+
   return (
     <section
       className="hero-section d-flex align-items-center text-white text-center"
@@ -20,8 +41,13 @@ export default function HeroSection() {
         <div className="search-form bg-white rounded-pill shadow p-3 px-4 d-flex flex-wrap align-items-center justify-content-center gap-3">
           <div className="form-group">
             <label className="form-label text-primary small">Marca</label>
-            <select className="form-select border-0">
-              <option>Selecionar</option>
+            <select
+              name="marca"
+              className="form-select border-0"
+              value={filters.marca}
+              onChange={handleChange}
+            >
+              <option value="">Selecionar</option>
               <option>BMW</option>
               <option>Porsche</option>
               <option>Fiat</option>
@@ -29,33 +55,34 @@ export default function HeroSection() {
               <option>Ford</option>
               <option>Hyundai</option>
               <option>Volkswagem</option>
+              <option>Ferrari</option>
+              <option>Peugeot</option>
             </select>
           </div>
-          <div className="form-group">
-            <label className="form-label text-primary small">Modelo</label>
-            <select className="form-select border-0">
-              <option>Selecionar</option>
-              <option>1.0</option>
-              <option>2.0</option>
-              <option>3.0</option>
-              <option>4.0</option>
-              <option>5.0</option>
-              <option>6.0</option>
-              <option>7.0</option>
-            </select>
-          </div>
+
           <div className="form-group">
             <label className="form-label text-primary small">Combustível</label>
-            <select className="form-select border-0">
-              <option>Selecionar</option>
+            <select
+              name="combustivel"
+              className="form-select border-0"
+              value={filters.combustivel}
+              onChange={handleChange}
+            >
+              <option value="">Selecionar</option>
               <option>Electrico</option>
               <option>Gasolina</option>
               <option>Gaséleo</option>
               <option>Híbrido Gasolina</option>
               <option>Híbrido Plug-In Gasolina</option>
+              <option>Diesel</option>
             </select>
           </div>
-          <button className="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '48px', height: '48px' }}>
+
+          <button
+            className="btn btn-primary rounded-circle d-flex align-items-center justify-content-center"
+            style={{ width: '48px', height: '48px' }}
+            onClick={handleSearch}
+          >
             <i className="bi bi-search"></i>
           </button>
         </div>
