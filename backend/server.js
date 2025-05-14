@@ -5,7 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import carRoutes from './routes/carRoutes.js';
+import authRoutes from './routes/authRoutes.js'; // 👈 NOVA ROTA
 import db from './config/db.js';
 
 dotenv.config();
@@ -23,13 +25,14 @@ app.use(express.json());
 // Pasta de uploads pública
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Rotas
+// Rotas da API
 app.use('/api/cars', carRoutes);
+app.use('/api/auth', authRoutes); // 👈 NOVA ROTA ADICIONADA
 
 // Testa conexão com MySQL
 db.connect((err) => {
   if (err) {
-    console.error('Erro ao conectar no MySQL:', err);
+    console.error('❌ Erro ao conectar no MySQL:', err);
   } else {
     console.log('✅ Conectado ao MySQL');
   }
