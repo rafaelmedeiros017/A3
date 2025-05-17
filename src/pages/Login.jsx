@@ -1,37 +1,70 @@
 import "../styles/Loginpage.css";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
-    return (
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [erro, setErro] = useState("");
+    const navigate = useNavigate();
 
-            <div className="login-wrapper" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-                <div className="login-container">
-                    <h1 className="mb-4">Login</h1>
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        setErro("");
+
+        try {
+            const res = await axios.post("http://localhost:5000/api/auth/login", {
+                email,
+                password
+            });
+
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+            navigate("/");
+        } catch (err) {
+            setErro(err.response?.data?.message || "Erro ao fazer login.");
+        }
+    };
+
+    return (
+        <div className="login-wrapper">
+            <div className="login-container">
+                <h1 className="mb-4">Login</h1>
+
+                <form onSubmit={handleLogin}>
                     <input
-                        type="text"
+                        type="email"
                         className="form-control mb-3"
-                        placeholder="Usuário"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
+
                     <input
                         type="password"
                         className="form-control mb-3"
                         placeholder="Senha"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
-                    <button className="entrar-conta">Entrar</button>
-                    <p>Ou entre com</p>
-                    <div className="social-buttons">
-                        <button className="btn btn-outline-dark w-100 mb-2">
-                            <i className="fab fa-google me-2"></i> Entrar com Google
-                        </button>
-                        <button className="btn btn-outline-dark w-100">
-                            <i className="fab fa-facebook-f me-2"></i> Entrar com
-                            Facebook
-                        </button>
-                    </div>
-                    <a className="criar-conta" href="/Registro">
-                        <p>Criar conta</p>
-                    </a>
+
+                    {erro && <div className="alert alert-danger mb-3">{erro}</div>}
+
+                    <button type="submit" className="btn btn-primary w-100 mb-3">
+                        Entrar
+                    </button>
+                </form>
+
+                <div className="text-center mt-3">
+                    <p>Não tem conta?</p>
+                    <Link to="/register" className="btn btn-outline-primary w-100">
+                        Criar Conta
+                    </Link>
                 </div>
             </div>
+        </div>
     );
 };
 

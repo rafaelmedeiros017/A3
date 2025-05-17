@@ -10,9 +10,12 @@ import CarDetails from './pages/CarDetails';
 import Resultados from './pages/Resultados';
 import Testimonials from './components/testimonials';
 import Footer from './components/Footer';
-import ContactPage from './pages/ContactPage'
+import ContactPage from './pages/ContactPage';
 import Viaturas from './pages/Viaturas';
 import Localizacao from './pages/Localizacao';
+import Login from './pages/Login';
+import Register from './pages/Register';
+
 
 function App() {
   return (
@@ -25,8 +28,8 @@ function App() {
               <Header />
               <HeroSection />
               <FeaturedCars />
-              <Testimonials/>
-              <Footer/>
+              <Testimonials />
+              <Footer />
             </>
           }
         />
@@ -34,9 +37,11 @@ function App() {
         <Route path="/admin/featured-cars" element={<AdminFeaturedCars />} />
         <Route path="/admin/editar-carro/:id" element={<EditarCarro />} />
         <Route path="/resultados" element={<Resultados />} />
-        <Route path="/contact" element={<ContactPage />}/>
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/viaturas" element={<Viaturas />} />
         <Route path="/localizacao" element={<Localizacao />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
