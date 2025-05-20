@@ -11,7 +11,7 @@ const Testimonials = () => {
     },
     {
       nome: "Carla Mendes",
-      comentario: "Equipa muito profissional e simpática. Consegui o financiamento com rapidez. Estou muito satisfeita!",
+      comentario: "Equipe muito profissional e simpática. Consegui o financiamento com rapidez. Estou muito satisfeita!",
       cidade: "Porto",
       imagem: "https://randomuser.me/api/portraits/women/45.jpg",
       estrelas: 4,
