@@ -45,7 +45,7 @@ const Viaturas = () => {
                 <Navbar />
                 <section className="py-5 bg-light text-center">
                     <div className="container">
-                        <p className="text-secondary">Carregando viaturas...</p>
+                        <p className="text-secondary">Carregando veiculos...</p>
                     </div>
                 </section>
                 <Footer />
@@ -60,7 +60,7 @@ const Viaturas = () => {
                 <section className="py-5 bg-light text-center">
                     <div className="container">
                         <p className="text-muted">
-                            Nenhuma viatura disponível.
+                            Nenhum veiculo disponível.
                         </p>
                     </div>
                 </section>
@@ -78,7 +78,7 @@ const Viaturas = () => {
                         Todas as Viaturas
                     </h2>
                     <p className="text-center text-primary mb-4">
-                        Veja todas as viaturas disponíveis no Stand Online
+                        Veja todos os veiculos disponíveis no Stand Online
                     </p>
 
                     <div className="row g-4">

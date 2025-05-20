@@ -36,7 +36,7 @@ export default function HeroSection() {
           <img src={logo} alt="Logo Stand Online" className="img-fluid" style={{ maxWidth: '400px' }} />
         </div>
 
-        <h2 className="fw-bold mb-4">Que Viatura Procura?</h2>
+        <h2 className="fw-bold mb-4">Que Veiculo Procura?</h2>
 
         <div className="search-form bg-white rounded-pill shadow p-3 px-4 d-flex flex-wrap align-items-center justify-content-center gap-3">
           <div className="form-group">

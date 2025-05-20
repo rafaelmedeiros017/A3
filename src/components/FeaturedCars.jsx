@@ -63,9 +63,9 @@ const FeaturedCars = () => {
   return (
     <section className="py-5 bg-light">
       <div className="container">
-        <h2 className="text-center fw-bold mb-2">Viaturas em Destaque</h2>
+        <h2 className="text-center fw-bold mb-2">Veiculos em Destaque</h2>
         <p className="text-center text-primary mb-4">
-          Sugerimos estas viaturas para si
+          Sugerimos estes veiculos para você
         </p>
 
         <div className="row g-4">

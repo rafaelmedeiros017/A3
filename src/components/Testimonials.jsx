@@ -4,7 +4,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       nome: "João Silva",
-      comentario: "Atendimento excelente e viatura entregue em perfeitas condições. Recomendo totalmente!",
+      comentario: "Atendimento excelente e veiculo entregue em perfeitas condições. Recomendo totalmente!",
       cidade: "Lisboa",
       imagem: "https://randomuser.me/api/portraits/men/32.jpg",
       estrelas: 5,

@@ -11,7 +11,7 @@ export default function Header() {
                 </div>
                 <div className="nav-icons">
                     <a href="/viaturas" className="nav-item">
-                        <i className="bi bi-list-ul"></i> Viaturas
+                        <i className="bi bi-list-ul"></i> Veiculos
                     </a>
 
                     <a href="/localizacao" className="nav-item">
@@ -19,7 +19,7 @@ export default function Header() {
                     </a>
 
                     <a href="/contact" className="nav-item">
-                        <i className="bi bi-chat-dots"></i> Contactos
+                        <i className="bi bi-chat-dots"></i> Contatos
                     </a>
                     <a href="/" className="nav-item">
                         <i className="bi bi-grid-3x3-gap-fill"></i> Menu

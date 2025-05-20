@@ -9,14 +9,14 @@ const Footer = () => {
           <div className="col-md-4 mb-4">
             <h5 className="fw-bold mb-3">Stand Online</h5>
             <p className="small">
-              A Stand Online oferece viaturas de qualidade, com atendimento personalizado e total
+              A Stand Online oferece veiculos de qualidade, com atendimento personalizado e total
               transparência. Garantimos confiança e satisfação em cada negócio.
             </p>
           </div>
 
           {/* Contactos */}
           <div className="col-md-4 mb-4">
-            <h5 className="fw-bold mb-3">Contactos</h5>
+            <h5 className="fw-bold mb-3">Contatos</h5>
             <p className="mb-1">
               <i className="bi bi-telephone-fill me-2"></i> +351 912 345 678
             </p>
@@ -24,7 +24,7 @@ const Footer = () => {
               <i className="bi bi-envelope-fill me-2"></i> standonline@gmail.com
             </p>
             <p className="mb-1">
-              <i className="bi bi-geo-alt-fill me-2"></i> Rua das Viaturas, nº 100, Lisboa
+              <i className="bi bi-geo-alt-fill me-2"></i> Rua dos veiculos, nº 100, Lisboa
             </p>
           </div>
 
