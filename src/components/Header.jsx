@@ -15,6 +15,7 @@ export default function Header() {
 
     const handleLogout = () => {
         localStorage.removeItem("user");
+        setUser(null);
         window.location.href = "/";
     };
 
@@ -29,6 +30,7 @@ export default function Header() {
                                 fontSize: "1.3rem",
                                 color: "#0d6efd",
                                 marginLeft: "15px",
+                                fontWeight: "bold"
                             }}
                         >
                             Olá, {user.nome}
@@ -52,12 +54,15 @@ export default function Header() {
 
                     {user ? (
                         <>
-                            <a
-                                href="/admin/featured-cars"
-                                className="nav-item ms-4 text-primary fw-bold"
-                            >
-                                <i className="bi bi-person-gear"></i> Admin
-                            </a>
+                            {user.isAdmin === 1 || user.isAdmin === true ? (
+                                <a
+                                    href="/admin/featured-cars"
+                                    className="nav-item ms-4 text-primary fw-bold"
+                                >
+                                    <i className="bi bi-person-gear"></i> Admin
+                                </a>
+                            ) : null}
+
                             <button
                                 onClick={handleLogout}
                                 className="btn btn-outline-danger btn-sm ms-3"
