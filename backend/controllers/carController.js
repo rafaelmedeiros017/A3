@@ -70,8 +70,8 @@ export const addCar = (req, res) => {
       marca, modelo, ano, combustivel, km, preco, imagens, ivaDedutivel,
       registo, lugares, segmento, potencia, origem,
       cilindrada, transmissao, cor, portas, estado, garantia,
-      informacoesAdicionais
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      informacoesAdicionais, alugado, alugadoPor
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, NULL)
   `;
 
   const values = [
@@ -204,5 +204,34 @@ export const deleteCar = (req, res) => {
       if (err) return res.status(500).json({ error: 'Erro ao remover carro.' });
       res.json({ message: 'Carro removido com sucesso.' });
     });
+  });
+};
+
+// PUT /api/cars/alugar/:id
+export const alugarCarro = (req, res) => {
+  const { id } = req.params;
+  const { nome } = req.body;
+
+  const sql = `
+    UPDATE cars SET alugado = 1, alugadoPor = ? WHERE id = ?
+  `;
+
+  db.query(sql, [nome, id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Erro ao alugar carro.' });
+    res.json({ message: 'Carro alugado com sucesso.' });
+  });
+};
+
+// PUT /api/cars/devolver/:id
+export const devolverCarro = (req, res) => {
+  const { id } = req.params;
+
+  const sql = `
+    UPDATE cars SET alugado = 0, alugadoPor = NULL WHERE id = ?
+  `;
+
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).json({ error: 'Erro ao devolver carro.' });
+    res.json({ message: 'Carro devolvido com sucesso.' });
   });
 };

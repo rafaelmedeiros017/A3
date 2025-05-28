@@ -143,6 +143,16 @@ const AdminFeaturedCars = () => {
     }
   };
 
+  // Função para devolver carro (atualiza status para disponível)
+  const handleDevolver = async (id) => {
+    try {
+      await axios.patch(`http://localhost:5000/api/cars/${id}/devolver`);
+      fetchCars();
+    } catch (error) {
+      console.error('Erro ao devolver carro:', error);
+    }
+  };
+
   if (!autorizado) return null;
 
   return (
@@ -150,7 +160,7 @@ const AdminFeaturedCars = () => {
       <h2 className="text-center mb-4">Adicionar Carro em Destaque</h2>
       <form onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: '900px' }}>
         <div className="row">
-          {[
+          {[ 
             { label: 'Marca', name: 'marca', type: 'text' },
             { label: 'Modelo', name: 'modelo', type: 'text' },
             { label: 'Ano', name: 'ano', type: 'number' },
@@ -249,9 +259,10 @@ const AdminFeaturedCars = () => {
       <div className="row">
         {cars.map((c) => {
           const imagens = Array.isArray(c.imagens) ? c.imagens : [c.imagens];
-          const infoAdic = Array.isArray(c.informacoesAdicionais)
-            ? c.informacoesAdicionais
-            : [];
+          const infoAdic = Array.isArray(c.informacoesAdicionais) ? c.informacoesAdicionais : [];
+
+          // Determinar status do carro (assumindo campo `alugado` boolean)
+          const isAlugado = c.alugado === 1 || c.alugado === true;
 
           return (
             <div className="col-md-6 mb-4" key={c.id}>
@@ -270,9 +281,9 @@ const AdminFeaturedCars = () => {
                     ))}
                   </Carousel>
                 )}
-                <div className="card-body">
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{c.marca} {c.modelo}</h5>
-                  <p className="card-text">
+                  <p className="card-text mb-1">
                     Ano: {c.ano}<br />
                     Combustível: {c.combustivel}<br />
                     Km: {c.km}<br />
@@ -286,7 +297,13 @@ const AdminFeaturedCars = () => {
                       ))}
                     </ul>
                   )}
-                  <div className="d-flex gap-2">
+                  <p>
+                    <strong>Status: </strong>
+                    <span className={isAlugado ? 'text-danger' : 'text-success'}>
+                      {isAlugado ? 'Alugado' : 'Disponível'}
+                    </span>
+                  </p>
+                  <div className="mt-auto d-flex gap-2">
                     <button
                       className="btn btn-warning w-100"
                       onClick={() => navigate(`/admin/editar-carro/${c.id}`)}
@@ -299,6 +316,14 @@ const AdminFeaturedCars = () => {
                     >
                       Remover
                     </button>
+                    {isAlugado && (
+                      <button
+                        className="btn btn-success w-100"
+                        onClick={() => handleDevolver(c.id)}
+                      >
+                        Devolver
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

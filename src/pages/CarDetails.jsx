@@ -8,6 +8,8 @@ const CarDetails = () => {
   const navigate = useNavigate();
   const [car, setCar] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [mensagem, setMensagem] = useState("");
+  const [erro, setErro] = useState("");
 
   useEffect(() => {
     const carFromStorage = localStorage.getItem("carDetails");
@@ -30,6 +32,35 @@ const CarDetails = () => {
       }
     }
     return Array.isArray(imagens) ? imagens : [imagens];
+  };
+
+  const handleAlugarCarro = async () => {
+    const nome = prompt("Digite o nome de quem vai alugar:");
+    if (!nome) return;
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/cars/alugar/${car.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nome })
+      });
+
+      if (response.ok) {
+        setMensagem("Carro alugado com sucesso!");
+        setErro("");
+        setCar((prev) => ({ ...prev, alugado: true, alugadoPor: nome }));
+        setTimeout(() => setMensagem(""), 5000);
+      } else {
+        throw new Error("Erro ao alugar o carro.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErro("Não foi possível alugar o carro.");
+      setMensagem("");
+      setTimeout(() => setErro(""), 5000);
+    }
   };
 
   if (!car) {
@@ -57,6 +88,17 @@ const CarDetails = () => {
       <Navbar />
       <section className="py-5 bg-light">
         <div className="container">
+          {mensagem && (
+            <div className="alert alert-success text-center" role="alert">
+              {mensagem}
+            </div>
+          )}
+          {erro && (
+            <div className="alert alert-danger text-center" role="alert">
+              {erro}
+            </div>
+          )}
+
           <h2 className="mb-4 text-center display-5 fw-bold" style={{ fontFamily: "'Segoe UI', sans-serif" }}>
             {car.marca} {car.modelo}
           </h2>
@@ -132,6 +174,7 @@ const CarDetails = () => {
                   ["Garantia", car.garantia, "bi-award"],
                   ["IVA Dedutível", car.ivaDedutivel === true || car.ivaDedutivel === "true" ? "Sim" : "Não", "bi-cash-coin"],
                   ["Preço", Number(car.preco).toLocaleString("pt-PT", { style: "currency", currency: "EUR", minimumFractionDigits: 0 }), "bi-currency-euro"],
+                  ["Status", car.alugado ? `Alugado por ${car.alugadoPor || "alguém"}` : "Disponível", "bi-box-seam"],
                 ].map(([label, value, icon], index) => (
                   <div key={index} className="col">
                     <i className={`bi ${icon} text-primary me-2`}></i>
@@ -141,35 +184,40 @@ const CarDetails = () => {
               </div>
 
               {car.informacoesAdicionais && (
-  <div className="mt-4 p-4 rounded-4 border border-primary bg-light shadow">
-    <h5 className="mb-3 d-flex align-items-center text-primary">
-      <i className="bi bi-info-circle-fill me-2 fs-4"></i>
-      Informações Adicionais
-    </h5>
-    <ul className="list-unstyled mb-0">
-      {(
-        Array.isArray(car.informacoesAdicionais)
-          ? car.informacoesAdicionais
-          : typeof car.informacoesAdicionais === "string"
-          ? car.informacoesAdicionais.split(/\n|,/)
-          : []
-      ).map((item, index) => {
-        const trimmed = item.trim();
-        return (
-          trimmed && (
-            <li key={index} className="d-flex align-items-start mb-2">
-              <i className="bi bi-check2-circle text-success me-2 fs-5 mt-1"></i>
-              <span className="text-dark" style={{ fontSize: "1.05rem" }}>{trimmed}</span>
-            </li>
-          )
-        );
-      })}
-    </ul>
-  </div>
-)}
-
+                <div className="mt-4 p-4 rounded-4 border border-primary bg-light shadow">
+                  <h5 className="mb-3 d-flex align-items-center text-primary">
+                    <i className="bi bi-info-circle-fill me-2 fs-4"></i>
+                    Informações Adicionais
+                  </h5>
+                  <ul className="list-unstyled mb-0">
+                    {(
+                      Array.isArray(car.informacoesAdicionais)
+                        ? car.informacoesAdicionais
+                        : typeof car.informacoesAdicionais === "string"
+                        ? car.informacoesAdicionais.split(/\n|,/)
+                        : []
+                    ).map((item, index) => {
+                      const trimmed = item.trim();
+                      return (
+                        trimmed && (
+                          <li key={index} className="d-flex align-items-start mb-2">
+                            <i className="bi bi-check2-circle text-success me-2 fs-5 mt-1"></i>
+                            <span className="text-dark" style={{ fontSize: "1.05rem" }}>{trimmed}</span>
+                          </li>
+                        )
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
 
               <div className="mt-4">
+                {!car.alugado && (
+                  <button onClick={handleAlugarCarro} className="btn btn-warning w-100 mb-3">
+                    <i className="bi bi-person-plus-fill me-2"></i>Alugar este carro
+                  </button>
+                )}
+
                 <a
                   href={`https://wa.me/5599999999999?text=Olá! Tenho interesse no ${car.marca} ${car.modelo} anunciado no site.`}
                   target="_blank"
