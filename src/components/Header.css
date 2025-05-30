@@ -1,11 +1,12 @@
-.admin-link {
-    color: #101dda !important; 
-    font-weight: bold;
+.custom-header {
+    border-bottom: 1px solid #eee;
+}
+
+.nav-item {
+    text-decoration: none;
     transition: color 0.2s ease-in-out;
-  }
-  
-  .admin-link:hover {
-    color: #1078da !important; /* tom mais escuro no hover */
-  }
-  
-  
+}
+
+.nav-item:hover {
+    color: #0d6efd; /* cor do Bootstrap */
+}

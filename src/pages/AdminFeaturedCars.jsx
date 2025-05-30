@@ -143,6 +143,15 @@ const AdminFeaturedCars = () => {
     }
   };
 
+  const handleDevolver = async (id) => {
+    try {
+      await axios.put(`http://localhost:5000/api/cars/devolver/${id}`);
+      fetchCars();
+    } catch (error) {
+      console.error('Erro ao devolver carro:', error);
+    }
+  };
+
   if (!autorizado) return null;
 
   return (
@@ -249,9 +258,7 @@ const AdminFeaturedCars = () => {
       <div className="row">
         {cars.map((c) => {
           const imagens = Array.isArray(c.imagens) ? c.imagens : [c.imagens];
-          const infoAdic = Array.isArray(c.informacoesAdicionais)
-            ? c.informacoesAdicionais
-            : [];
+          const infoAdic = Array.isArray(c.informacoesAdicionais) ? c.informacoesAdicionais : [];
 
           return (
             <div className="col-md-6 mb-4" key={c.id}>
@@ -277,8 +284,31 @@ const AdminFeaturedCars = () => {
                     Combustível: {c.combustivel}<br />
                     Km: {c.km}<br />
                     Preço: €{c.preco}<br />
-                    IVA Dedutível: {c.ivaDedutivel === 1 || c.ivaDedutivel === true ? 'Sim' : 'Não'}
+                    IVA Dedutível: {c.ivaDedutivel === 1 || c.ivaDedutivel === true ? 'Sim' : 'Não'}<br />
+                    <strong>Status:</strong>{' '}
+                    {c.alugado === 1 ? (
+                      <span className="text-danger fw-bold">Alugado</span>
+                    ) : (
+                      <span className="text-success fw-bold">Disponível</span>
+                    )}
                   </p>
+
+                  {c.alugado === 1 && (
+                    <div className="my-2">
+                      <span className="badge bg-success fs-5">
+                        Alugado por: <strong>{c.alugadoPor || 'Desconhecido'}</strong>
+                      </span>
+                      <div className="mt-2">
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => handleDevolver(c.id)}
+                        >
+                          Devolver
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
                   {infoAdic.length > 0 && (
                     <ul>
                       {infoAdic.map((info, i) => (
@@ -286,6 +316,7 @@ const AdminFeaturedCars = () => {
                       ))}
                     </ul>
                   )}
+
                   <div className="d-flex gap-2">
                     <button
                       className="btn btn-warning w-100"
