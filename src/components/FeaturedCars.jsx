@@ -11,6 +11,10 @@ const FeaturedCars = () => {
     return value === true || value === 'true' || value === 1 || value === '1';
   };
 
+  const isAlugado = (value) => {
+    return value === true || value === 'true' || value === 1 || value === '1';
+  };
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -63,14 +67,15 @@ const FeaturedCars = () => {
   return (
     <section className="py-5 bg-light">
       <div className="container">
-        <h2 className="text-center fw-bold mb-2">Veiculos em Destaque</h2>
+        <h2 className="text-center fw-bold mb-2">Veículos em Destaque</h2>
         <p className="text-center text-primary mb-4">
-          Sugerimos estes veiculos para você
+          Sugerimos estes veículos para você
         </p>
 
         <div className="row g-4">
           {cars.map((car) => {
             const imagemPrincipal = getFirstImage(car.imagens);
+            const alugado = isAlugado(car.alugado);
             return (
               <div className="col-md-6 col-lg-4" key={car.id}>
                 <div
@@ -90,6 +95,13 @@ const FeaturedCars = () => {
                         IVA DEDUTÍVEL
                       </span>
                     )}
+                    <span
+                      className={`badge position-absolute top-0 end-0 m-2 ${
+                        alugado ? "bg-danger" : "bg-success"
+                      }`}
+                    >
+                      {alugado ? "ALUGADO" : "DISPONÍVEL"}
+                    </span>
                     {imagemPrincipal && (
                       <img
                         src={`http://localhost:5000${imagemPrincipal}`}
