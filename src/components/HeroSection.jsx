@@ -54,9 +54,10 @@ export default function HeroSection() {
               <option>Jeep</option>
               <option>Ford</option>
               <option>Hyundai</option>
-              <option>Volkswagem</option>
+              <option>Volkswagen</option>
               <option>Ferrari</option>
               <option>Peugeot</option>
+              <option>Mercedes-Benz</option>
             </select>
           </div>
 

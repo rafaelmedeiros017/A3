@@ -92,7 +92,7 @@ const FeaturedCars = () => {
                   >
                     {isIvaDedutivel(car.ivaDedutivel) && (
                       <span className="badge bg-primary position-absolute top-0 start-0 m-2">
-                        IVA DEDUTÍVEL
+                        IMPOSTO DEDUTÍVEL
                       </span>
                     )}
                     <span
