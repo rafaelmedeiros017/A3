@@ -6,8 +6,10 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import carRoutes from './routes/carRoutes.js';
-import authRoutes from './routes/authRoutes.js'; // 👈 NOVA ROTA
+import carRoutes from './routes/carroRoutes.js';
+import gestorRoutes from './routes/gestorRoutes.js';
+import motoristaRoutes from './routes/motoristaRoutes.js';
+import eventoRoutes from './routes/eventoRoutes.js';
 import db from './config/db.js';
 
 dotenv.config();
@@ -27,7 +29,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Rotas da API
 app.use('/api/cars', carRoutes);
-app.use('/api/auth', authRoutes); // 👈 NOVA ROTA ADICIONADA
+app.use('/api/gestores', gestorRoutes);
+app.use('/api/motoristas', motoristaRoutes);
+app.use('/api/eventos', eventoRoutes);
 
 // Testa conexão com MySQL
 db.connect((err) => {
@@ -40,11 +44,13 @@ db.connect((err) => {
 
 // Rota base
 app.get('/', (req, res) => {
-  res.send('API está funcionando ✅');
+  res.send('API de Gestão de Frota está funcionando ✅');
 });
 
 // Inicializa o servidor
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
+  console.log(`📊 Sistema de Gestão de Frota ativo`);
+  console.log(`🔗 API disponível em: http://localhost:${PORT}`);
 });

@@ -1,49 +1,75 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Gestores from './pages/Gestores';
+import Motoristas from './pages/Motoristas';
+import Carros from './pages/Carros';
+import Eventos from './pages/Eventos';
+import Relatorios from './pages/Relatorios';
+import Layout from './components/Layout';
 import './App.css';
 
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import FeaturedCars from './components/FeaturedCars';
-import AdminFeaturedCars from './pages/AdminFeaturedCars';
-import EditarCarro from './pages/EditarCarro';
-import CarDetails from './pages/CarDetails';
-import Resultados from './pages/Resultados';
-import Testimonials from './components/testimonials';
-import Footer from './components/Footer';
-import ContactPage from './pages/ContactPage';
-import Viaturas from './pages/Viaturas';
-import Localizacao from './pages/Localizacao';
-import Login from './pages/Login';
-import Register from './pages/Register';
-
+// Componente para rotas protegidas
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <HeroSection />
-              <FeaturedCars />
-              <Testimonials />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/carro/:id" element={<CarDetails />} />
-        <Route path="/admin/featured-cars" element={<AdminFeaturedCars />} />
-        <Route path="/admin/editar-carro/:id" element={<EditarCarro />} />
-        <Route path="/resultados" element={<Resultados />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/viaturas" element={<Viaturas />} />
-        <Route path="/localizacao" element={<Localizacao />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Dashboard />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path="/gestores" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Gestores />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path="/motoristas" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Motoristas />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path="/carros" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Carros />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path="/eventos" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Eventos />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path="/relatorios" element={
+              <ProtectedRoute>
+                <Layout>
+                  <Relatorios />
+                </Layout>
+              </ProtectedRoute>
+            } />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
