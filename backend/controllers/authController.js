@@ -14,9 +14,8 @@ export const registerUser = (req, res) => {
   bcrypt.hash(password, 10, (err, hashedPassword) => {
     if (err) return res.status(500).json({ message: 'Erro ao criptografar senha.' });
 
-    // Por padrão, todo novo usuário NÃO é admin
-    const query = 'INSERT INTO users (nome, email, password, isAdmin) VALUES (?, ?, ?, ?)';
-    db.query(query, [nome, email, hashedPassword, false], (error, results) => {
+    const query = 'INSERT INTO users (nome, email, password) VALUES (?, ?, ?)';
+    db.query(query, [nome, email, hashedPassword], (error, results) => {
       if (error) {
         console.error(error);
         return res.status(500).json({ message: 'Erro ao registrar usuário.' });
@@ -58,7 +57,6 @@ export const loginUser = (req, res) => {
           id: user.id,
           nome: user.nome,
           email: user.email,
-          isAdmin: !!user.isAdmin // garante booleano no front
         }
       });
     });
