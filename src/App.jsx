@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -71,6 +72,74 @@ function App() {
       </Router>
     </AuthProvider>
   );
+=======
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import FeaturedClothes from "./components/FeaturedClothes";
+import AdminFeaturedCars from "./pages/AdminFeaturedCars";
+import AdminFeaturedRoupas from "./pages/AdminFeaturedRoupas";
+import EditarCarro from "./pages/EditarCarro";
+import EditarRoupa from "./pages/EditarRoupa";
+import CarDetails from "./pages/CarDetails";
+import Resultados from "./pages/Resultados";
+import Testimonials from "./components/testimonials";
+import Footer from "./components/Footer";
+import ContactPage from "./pages/ContactPage";
+import Viaturas from "./pages/Viaturas";
+import Roupas from "./pages/Roupas";
+import Localizacao from "./pages/Localizacao";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import RopaDetails from "./pages/RopaDetails";
+
+function App() {
+    return (
+        <Router>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <>
+                            <Header />
+                            <HeroSection />
+                            <FeaturedClothes />
+                            <Testimonials />
+                            <Footer />
+                        </>
+                    }
+                />
+                <Route path="/carro/:id" element={<CarDetails />} />
+                <Route path="/roupa/:id" element={<RopaDetails />} />
+                <Route
+                    path="/admin/featured-cars"
+                    element={<AdminFeaturedCars />}
+                />
+                <Route
+                    path="/admin/featured-roupas"
+                    element={<AdminFeaturedRoupas />}
+                />
+                <Route
+                    path="/admin/editar-carro/:id"
+                    element={<EditarCarro />}
+                />
+                <Route
+                    path="/admin/editar-roupa/:id"
+                    element={<EditarRoupa />}
+                />
+                <Route path="/resultados" element={<Resultados />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/viaturas" element={<Viaturas />} />
+                <Route path="/roupas" element={<Roupas />} />
+                <Route path="/localizacao" element={<Localizacao />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+            </Routes>
+        </Router>
+    );
+>>>>>>> Stashed changes
 }
 
 export default App;
